@@ -1,0 +1,113 @@
+								POO
+Tracks:
+
+Q1: 
+public class Track {
+
+	private String title;
+	private int duration;
+
+	public Track(String title, int duration) {
+		this.title = title;
+		this.duration = duration;
+	}
+
+	public int getDuration() {
+		return this.duration;
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+}
+
+Q2:
+public boolean equals(Object o) {
+	if(!(o instanceof Track)) return false;
+	else {
+		Track other = (Track) o
+		return this.getDuration() == other.getDuration() && this.getTitle().equals(other.getTitle());
+	}
+}
+
+
+@Test 
+public void isTrackEquals() {
+	Track t1 = new Track("toto", 30);
+	Track t2 = new Track("toto", 30);
+	AssertTrue(t1.equals(t2));
+}
+
+
+Q3:
+public String toString(){
+	return "Le titre de la musique est " + this.getTitle() + " et dure " + this.getDuration() + " secondes.";
+}
+
+
+Q4, Q5, Q6, Q7:
+public enum Category {
+	Rock, Classique, Jazz, Rap;
+}
+Category c = Category.Rock;
+
+
+public class Album {
+
+	private String title;
+	private Category style;
+	public Track[] musics;
+	private int mCounter;
+
+	public Album(String title, Category style, int nbMax) {
+		this.title = title;
+		this.style = style;
+		this.musics = new Track[nbMax];
+		int mCounter = 0;
+	}
+
+	public boolean isFinished() {
+		return this.mCounter == this.musics.length;
+	}
+	
+	public void addTrack(Track t) {
+		this.musics[mCounter] = t;
+		mCounter = mCounter + 1;
+	}
+
+	public boolean contains(Track music) {
+		boolean found = False;
+		int i = 0;
+		while(i<mCounter && found == false) {
+			if(this.musics[i].equals(music)) found = true
+			i++;
+		return found;
+		}	
+	}	
+}
+
+@test
+public void containsMusic() {
+	Track t = ("Toto", 100);
+	Album a = ("New", Category.rock, 5);
+	a.add(t);
+	AssertTrue (a.contains(t));
+}
+
+
+Q8:
+/**
+*...
+*...
+*@ throws AlbumFinishedException if Album is full 
+*/
+public void addTrack(Track t) throws AlbumFinishedException {
+...
+}
+
+==>	 	public class AlbumFinishedException extends Exception {
+		...
+		}
+
+
+

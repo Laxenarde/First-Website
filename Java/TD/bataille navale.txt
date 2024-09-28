@@ -1,0 +1,90 @@
+/**
+* class for Ship
+*/
+public class Ship {
+    /* Amount of life points*/
+    private int lifePoints;
+
+    /**
+    * builds a ship with the amount of life points
+    * @param lifePoints amount of life points 
+    */
+    public Ship(int lifePoints) {
+        this.lifePoints = lifePoints;
+    }
+
+    /** returns the amount of life points
+    */
+    public int getLifePoints() {
+        return this.lifePoints;
+    }
+
+    /** decreases the amount of life points by 1
+    */
+    public void beenHitting() {
+        this.lifePoints = this.lifePoints -1;
+    }
+
+    /** returns a boolean to know if the amount of life points is equal to 0
+    */
+    public boolean hasBeenSunck() {
+        return this.getLifePoints() == 0;
+    }
+
+    /** returns the string of the class Ship 
+    */
+    public String toString() {
+        return "Le bateau a " + this.getLifePoints() + " points de vie."
+    }
+
+    @test
+    public void hasBeenHit() {
+        Ship s1 = new Ship(2);
+        int p = s1.getLifePoints();
+        s1.beenHitting();
+        assertTrue(p-1 == s1.getLifePoints());
+    }
+
+
+}
+
+Q1:
+Il faut faire une enum
+
+Q4:
+public Answer shot () {
+    s = this.getShip();
+    if(s == null || this.hasBeenShot()) return Answer.Missed;
+    else {
+        s.beenHitting()
+        if(s.hasBeenSunck()) return Answer.Sunk;
+        else Answer Hit;
+    }
+}
+
+Q5:
+public class Sea {
+
+        private Cell[][] cells;
+
+        public Sea (int x, int y) {
+            this.cells = new Cell[x][y];
+            for(int i=0; i<x; i++) {
+                for(int j=0; j<y; j++) {
+                    cells[i][j] = new Cell();
+                }
+            }
+        }
+
+        public void addShip(Ship s, Position p) {
+            Cell cell = cells[p.getX][p.getY];
+            if(cell.getShip() == null) cell.setShip(s)
+        }
+
+        public Answer shoot(Position p) throws InvalidShootException{
+            if(!this.isValid(p)) throws new InvalidShootException;
+            return this.getCell(p).shot();
+        }
+}
+
+

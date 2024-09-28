@@ -1,0 +1,9 @@
+Fichiers source
+
+Compilation: javac -sourcepath src FICHIER
+Documentation: javadoc -sourcepath src FICHIER
+Execution: java -classpath classes FICHIER
+
+Tests
+Compilation: javac -classpath junit-console.jar:classes FICHIER
+Execution: java -jar junit-console.jar -classpath test:classes -select-class PACKAGE

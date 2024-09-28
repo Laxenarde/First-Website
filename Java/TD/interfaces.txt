@@ -1,0 +1,24 @@
+Q1.1:
+package zoo;
+public class Elephant implements Animal {
+
+    private int nbLegs;
+    private boolean isCarnivorous;
+    private int weight;
+
+    public Elephant(int weight) {
+        this.weight = weight;
+        this.isCarnivorous = false;
+        this.nbLegs = 4;
+    }
+
+    public int getNbLegs() {
+        return this.nbLegs
+    }
+
+    public boolean isCarnivorous() {
+        return this.isCarnivorous
+    }
+}
+
+Q1.2:
